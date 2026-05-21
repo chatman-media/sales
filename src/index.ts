@@ -7,6 +7,22 @@ export {
   pickVariant,
 } from "./ab-router.ts";
 // ─── Coach ───────────────────────────────────────────────────────────────────
+// `proposeStyleEdits` (coach.ts) — LLM coach: читает worst self-play
+// transcripts и предлагает edits для Style spec'а. Out-of-band, admin-trigger.
+// `CoachAnalyzer` (coach-analyzer.ts) — post-hoc grader: для closed-lead'ов
+// проходит transcript и записывает skill_outcomes через gradeSkills.
+// Package-agnostic (принимает interfaces) — работает в любой DAL-shape.
+export {
+  type AnalyzeLeadOpts,
+  type AnalysisResult,
+  CoachAnalyzer,
+  type CoachAnalyzerLead,
+  type CoachAnalyzerMessage,
+  type CoachAnalyzerMessages,
+  type CoachAnalyzerOpts,
+  type CoachAnalyzerSkillOutcomes,
+  extractUserAssistantPairs,
+} from "./coach-analyzer.ts";
 export {
   applyEditsToStyle,
   type CoachInput,
